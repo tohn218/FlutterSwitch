@@ -43,6 +43,7 @@ class FlutterSwitch extends StatefulWidget {
     this.inactiveIcon,
     this.duration = const Duration(milliseconds: 200),
     this.disabled = false,
+    this.gradient,
   })  : assert(
             (switchBorder == null || activeSwitchBorder == null) &&
                 (switchBorder == null || inactiveSwitchBorder == null),
@@ -251,6 +252,9 @@ class FlutterSwitch extends StatefulWidget {
   /// Defaults to the value of false.
   final bool disabled;
 
+  /// Sử dụng [gradient] thay cho màu của [toggleColor]
+  final Gradient? gradient;
+
   @override
   _FlutterSwitchState createState() => _FlutterSwitchState();
 }
@@ -386,6 +390,7 @@ class _FlutterSwitchState extends State<FlutterSwitch>
                               shape: BoxShape.circle,
                               color: _toggleColor,
                               border: _toggleBorder,
+                              gradient: widget.gradient,
                             ),
                             child: FittedBox(
                               fit: BoxFit.contain,
